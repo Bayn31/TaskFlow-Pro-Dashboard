@@ -1,0 +1,298 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro | Gestion de Projets Avancée</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <h1>TaskFlow Pro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#dashboard">Tableaux de bord</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <button class="btn btn-secondary">Se connecter</button>
+                <button class="btn btn-primary">Essai gratuit</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Gérez vos projets avec une intelligence analytique avancée</h1>
+                <p>TaskFlow Pro transforme votre gestion de projet avec des tableaux de bord analytiques qui vous donnent une visibilité complète sur vos performances et vos progrès.</p>
+                <div class="cta-group">
+                    <button class="btn btn-primary btn-large"><a href="Dashboards/index.html" style="color: white;">Commencer gratuitement</a></button>
+                    <button class="btn btn-outline">Voir une démo</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div id="dashboard-preview"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Des fonctionnalités conçues pour les équipes productives</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Gestion de tâches intuitive</h3>
+                    <p>Créez, organisez et suivez vos tâches avec une interface simple et puissante, adaptée à tous les types de projets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Tableaux de bord analytiques</h3>
+                    <p>Visualisez les performances de votre équipe avec des métriques clés et des graphiques personnalisables en temps réel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration d'équipe</h3>
+                    <p>Communiquez efficacement et partagez des ressources dans un espace de travail centralisé pour toute votre équipe.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Planification avancée</h3>
+                    <p>Planifiez vos projets avec des diagrammes de Gantt interactifs et des outils de prévision intelligents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-content">
+                <h2>Analytics puissants pour des décisions éclairées</h2>
+                <p>Nos tableaux de bord interactifs vous permettent de visualiser tous les aspects de vos projets et de votre productivité d'équipe.</p>
+                <ul class="dashboard-features">
+                    <li><i class="fas fa-check-circle"></i> Suivi en temps réel des KPIs de projet</li>
+                    <li><i class="fas fa-check-circle"></i> Visualisation de la répartition des charges de travail</li>
+                    <li><i class="fas fa-check-circle"></i> Identification des goulots d'étranglement</li>
+                    <li><i class="fas fa-check-circle"></i> Prévisions basées sur les performances historiques</li>
+                </ul>
+            </div>
+            <div class="dashboard-demo" id="dashboard-demo">
+                <!-- JS va générer le tableau de bord interactif ici -->
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ce que nos clients disent</h2>
+            <div class="testimonial-carousel" id="testimonial-carousel">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <p>"TaskFlow Pro a transformé notre façon de gérer les projets. Les analyses nous ont permis d'améliorer notre productivité de 35% en seulement 3 mois."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sophie Martin</h4>
+                            <p>Directrice de Projet, Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"L'interface intuitive et les tableaux de bord personnalisables nous ont permis d'avoir une visibilité sans précédent sur nos projets."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Thomas Dubois</h4>
+                            <p>PDG, Innovate Corp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Les fonctionnalités analytiques de TaskFlow Pro nous ont aidés à identifier et résoudre des problèmes que nous ne savions même pas avoir."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Julie Leclerc</h4>
+                            <p>Responsable d'équipe, Digital Agency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Plans tarifaires adaptés à vos besoins</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Débutant</h3>
+                        <div class="price">
+                            <span class="currency">€</span>
+                            <span class="amount">9</span>
+                            <span class="period">/mois par utilisateur</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Gestion de tâches de base</li>
+                        <li><i class="fas fa-check"></i> Tableaux de bord simples</li>
+                        <li><i class="fas fa-check"></i> Jusqu'à 5 projets</li>
+                        <li><i class="fas fa-check"></i> 5 Go de stockage</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Analyses avancées</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Intégrations API</li>
+                    </ul>
+                    <button class="btn btn-outline btn-full">Choisir ce plan</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="pricing-header">
+                        <div class="popular-tag">Le plus choisi</div>
+                        <h3>Professionnel</h3>
+                        <div class="price">
+                            <span class="currency">€</span>
+                            <span class="amount">19</span>
+                            <span class="period">/mois par utilisateur</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Gestion de tâches avancée</li>
+                        <li><i class="fas fa-check"></i> Tableaux de bord complets</li>
+                        <li><i class="fas fa-check"></i> Projets illimités</li>
+                        <li><i class="fas fa-check"></i> 50 Go de stockage</li>
+                        <li><i class="fas fa-check"></i> Analyses avancées</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Intégrations API</li>
+                    </ul>
+                    <button class="btn btn-primary btn-full">Choisir ce plan</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Entreprise</h3>
+                        <div class="price">
+                            <span class="currency">€</span>
+                            <span class="amount">39</span>
+                            <span class="period">/mois par utilisateur</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Gestion de tâches avancée</li>
+                        <li><i class="fas fa-check"></i> Tableaux de bord personnalisés</li>
+                        <li><i class="fas fa-check"></i> Projets illimités</li>
+                        <li><i class="fas fa-check"></i> Stockage illimité</li>
+                        <li><i class="fas fa-check"></i> Analyses avancées</li>
+                        <li><i class="fas fa-check"></i> Intégrations API</li>
+                    </ul>
+                    <button class="btn btn-outline btn-full">Choisir ce plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre gestion de projet ?</h2>
+                <p>Rejoignez les milliers d'équipes qui utilisent TaskFlow Pro pour améliorer leur productivité et leur prise de décision.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large">Commencer gratuitement</button>
+                    <button class="btn btn-secondary">Contacter les ventes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand">
+                    <div class="logo">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>TaskFlow Pro</h3>
+                    </div>
+                    <p>Une solution SaaS complète pour la gestion de projet et l'analyse de performance.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="#">Fonctionnalités</a></li>
+                        <li><a href="#">Tarifs</a></li>
+                        <li><a href="#">Témoignages</a></li>
+                        <li><a href="#">Nouveautés</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Guide utilisateur</a></li>
+                        <li><a href="#">Webinaires</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Équipe</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TaskFlow Pro. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
