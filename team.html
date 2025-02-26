@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro | Équipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TaskFlow Pro - Gestion d'équipe et suivi de performance">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <h2>TaskFlow Pro</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> <span>Tableau de bord</span></a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i> <span>Tâches</span></a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Planification</span></a></li>
+                    <li class="active"><a href="team.html"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+                    <li><a href="reports.html"><i class="fas fa-file-alt"></i> <span>Rapports</span></a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <p class="user-name">Thomas Dupont</p>
+                        <p class="user-role">Chef de projet</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="page-title">
+                    <h1>Gestion d'Équipe</h1>
+                    <p>Suivez la performance et la charge de travail de votre équipe</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Rechercher...">
+                    </div>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter un membre</button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content team-page">
+                <div class="team-overview">
+                    <div class="team-stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-data">
+                            <h3>Membres</h3>
+                            <p class="stat-value">6</p>
+                        </div>
+                    </div>
+                    <div class="team-stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-data">
+                            <h3>Tâches terminées</h3>
+                            <p class="stat-value">192</p>
+                        </div>
+                    </div>
+                    <div class="team-stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="stat-data">
+                            <h3>Tâches en cours</h3>
+                            <p class="stat-value">35</p>
+                        </div>
+                    </div>
+                    <div class="team-stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-data">
+                            <h3>Performance moyenne</h3>
+                            <p class="stat-value">85%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-charts-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Performance de l'équipe</h3>
+                            <div class="chart-actions">
+                                <select id="performance-period">
+                                    <option value="week">Cette semaine</option>
+                                    <option value="month" selected>Ce mois</option>
+                                    <option value="quarter">Ce trimestre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="team-performance-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Charge de travail</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="team-workload-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-members-section">
+                    <div class="section-header">
+                        <h3>Membres de l'équipe</h3>
+                        <div class="section-actions">
+                            <div class="search-filter">
+                                <input type="text" id="member-search" placeholder="Rechercher un membre...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="filter-dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle">
+                                    <i class="fas fa-filter"></i> Filtrer <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item" data-filter="all">Tous les départements</a>
+                                    <a href="#" class="dropdown-item" data-filter="development">Développement</a>
+                                    <a href="#" class="dropdown-item" data-filter="design">Design</a>
+                                    <a href="#" class="dropdown-item" data-filter="marketing">Marketing</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-members-grid">
+                        <div class="team-member-card" data-member-id="1">
+                            <div class="member-avatar">
+                                <span>TD</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Thomas Dupont</h4>
+                                <p class="member-role">Chef de projet</p>
+                                <p class="member-department">Développement</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">45</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-card" data-member-id="2">
+                            <div class="member-avatar">
+                                <span>SM</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Sophie Martin</h4>
+                                <p class="member-role">Designer UX/UI</p>
+                                <p class="member-department">Design</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">38</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">4</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-card" data-member-id="3">
+                            <div class="member-avatar">
+                                <span>LB</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Lucas Bernard</h4>
+                                <p class="member-role">Développeur Backend</p>
+                                <p class="member-department">Développement</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">35</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">6</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-card" data-member-id="4">
+                            <div class="member-avatar">
+                                <span>EP</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Emma Petit</h4>
+                                <p class="member-role">Responsable Marketing</p>
+                                <p class="member-department">Marketing</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">30</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">8</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-card" data-member-id="5">
+                            <div class="member-avatar">
+                                <span>MT</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Maxime Tremblay</h4>
+                                <p class="member-role">Développeur Frontend</p>
+                                <p class="member-department">Développement</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">25</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">4</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-card" data-member-id="6">
+                            <div class="member-avatar">
+                                <span>JL</span>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Julie Leclerc</h4>
+                                <p class="member-role">Designer Graphique</p>
+                                <p class="member-department">Design</p>
+                            </div>
+                            <div class="member-stats">
+                                <div class="member-stat">
+                                    <span class="stat-label">Tâches</span>
+                                    <span class="stat-value">22</span>
+                                </div>
+                                <div class="member-stat">
+                                    <span class="stat-label">En cours</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                            </div>
+                            <div class="member-actions">
+                                <button class="btn btn-sm btn-outline-primary assign-task-btn">
+                                    <i class="fas fa-plus"></i> Assigner
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Member Detail Modal -->
+    <div class="modal" id="member-modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>Détails du membre</h3>
+                <button class="close-modal" id="close-member-modal" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="member-detail-header">
+                    <div class="member-detail-avatar">
+                        <span>TD</span>
+                    </div>
+                    <div class="member-detail-info">
+                        <h2 id="member-detail-name">Thomas Dupont</h2>
+                        <p id="member-detail-role">Chef de projet</p>
+                        <p id="member-detail-department">Développement</p>
+                    </div>
+                </div>
+                
+                <div class="member-detail-content">
+                    <div class="member-detail-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-data">
+                                <h4>Tâches terminées</h4>
+                                <p id="member-detail-completed">45</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-spinner"></i>
+                            </div>
+                            <div class="stat-data">
+                                <h4>Tâches actives</h4>
+                                <p id="member-detail-active">5</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-data">
+                                <h4>Performance</h4>
+                                <p id="member-detail-performance">92%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-detail-section">
+                        <h4>Informations de contact</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span id="member-detail-email">thomas.dupont@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span id="member-detail-phone">+33 6 12 34 56 78</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="member-detail-join-date">A rejoint le 15 avril 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-detail-section">
+                        <h4>Compétences</h4>
+                        <div id="member-detail-skills" class="skills-container">
+                            <span class="skill-badge">UX Design</span>
+                            <span class="skill-badge">Project Management</span>
+                            <span class="skill-badge">Frontend Development</span>
+                            <span class="skill-badge">Agile/Scrum</span>
+                        </div>
+                    </div>
+                    
+                    <div class="member-detail-section">
+                        <h4>Bio</h4>
+                        <p id="member-detail-bio">Thomas est un chef de projet expérimenté avec plus de 5 ans d'expérience dans la gestion de projets web et mobile.</p>
+                    </div>
+                    
+                    <div class="member-detail-section">
+                        <div class="section-header">
+                            <h4>Tâches assignées</h4>
+                            <button class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-plus"></i> Assigner une tâche
+                            </button>
+                        </div>
+                        <div id="member-tasks-list" class="member-tasks-list">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Task Assignment Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ajouter une nouvelle tâche</h3>
+                <button class="close-modal" id="close-modal" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Titre</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-project">Projet</label>
+                            <select id="task-project">
+                                <option value="project1">Refonte du site web</option>
+                                <option value="project2">Application mobile</option>
+                                <option value="project3">Campagne marketing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priorité</label>
+                            <select id="task-priority">
+                                <option value="low">Basse</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="high">Haute</option>
+                                <option value="urgent">Urgente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-status">Statut</label>
+                            <select id="task-status">
+                                <option value="todo">À faire</option>
+                                <option value="in-progress">En cours</option>
+                                <option value="review">En révision</option>
+                                <option value="completed">Terminé</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-due-date">Date d'échéance</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-assignee">Assigné à</label>
+                        <select id="task-assignee">
+                            <option value="user1">Thomas Dupont</option>
+                            <option value="user2">Sophie Martin</option>
+                            <option value="user3">Lucas Bernard</option>
+                            <option value="user4">Emma Petit</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-task">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

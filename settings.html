@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro | Paramètres</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TaskFlow Pro - Paramétrez votre application selon vos préférences">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <h2>TaskFlow Pro</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> <span>Tableau de bord</span></a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i> <span>Tâches</span></a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Planification</span></a></li>
+                    <li><a href="team.html"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+                    <li><a href="reports.html"><i class="fas fa-file-alt"></i> <span>Rapports</span></a></li>
+                    <li class="active"><a href="settings.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <p class="user-name">Thomas Dupont</p>
+                        <p class="user-role">Chef de projet</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="page-title">
+                    <h1>Paramètres</h1>
+                    <p>Personnalisez votre expérience TaskFlow Pro</p>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content settings-page">
+                <div class="settings-container">
+                    <div class="settings-tabs">
+                        <button class="settings-tab active" data-target="profile-settings">
+                            <i class="fas fa-user"></i> Profil
+                        </button>
+                        <button class="settings-tab" data-target="account-settings">
+                            <i class="fas fa-cog"></i> Compte
+                        </button>
+                        <button class="settings-tab" data-target="notification-settings">
+                            <i class="fas fa-bell"></i> Notifications
+                        </button>
+                        <button class="settings-tab" data-target="security-settings">
+                            <i class="fas fa-lock"></i> Sécurité
+                        </button>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <div id="profile-settings" class="settings-section active">
+                            <h2>Profil utilisateur</h2>
+                            <p class="settings-description">Modifiez vos informations personnelles et professionnelles</p>
+                            
+                            <form id="user-profile-form" class="settings-form">
+                                <div class="avatar-upload-container">
+                                    <div class="current-avatar">
+                                        <img id="avatar-preview" src="https://ui-avatars.com/api/?name=Thomas+Dupont&background=1abc9c&color=fff&size=200" alt="Avatar">
+                                    </div>
+                                    <div class="avatar-upload">
+                                        <label for="avatar-upload" class="btn btn-outline-primary">
+                                            <i class="fas fa-upload"></i> Changer la photo
+                                        </label>
+                                        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                                        <p class="upload-hint">JPG, GIF ou PNG. 1MB max.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="user-name">Nom complet</label>
+                                        <input type="text" id="user-name" value="Thomas Dupont">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-email">Email</label>
+                                        <input type="email" id="user-email" value="thomas.dupont@example.com">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="user-phone">Téléphone</label>
+                                        <input type="tel" id="user-phone" value="+33 6 12 34 56 78">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-job-title">Intitulé du poste</label>
+                                        <input type="text" id="user-job-title" value="Chef de projet">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="user-department">Département</label>
+                                    <select id="user-department">
+                                        <option value="development" selected>Développement</option>
+                                        <option value="design">Design</option>
+                                        <option value="marketing">Marketing</option>
+                                        <option value="sales">Ventes</option>
+                                        <option value="hr">Ressources Humaines</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="user-bio">Bio</label>
+                                    <textarea id="user-bio" rows="4">Chef de projet avec plus de 5 ans d'expérience dans la gestion de projets web et mobile. Passionné par l'optimisation des flux de travail et l'amélioration continue.</textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div id="account-settings" class="settings-section">
+                            <h2>Paramètres du compte</h2>
+                            <p class="settings-description">Configurez les préférences de votre compte</p>
+                            
+                            <form id="account-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="language-preference">Langue</label>
+                                    <select id="language-preference">
+                                        <option value="fr" selected>Français</option>
+                                        <option value="en">English</option>
+                                        <option value="es">Español</option>
+                                        <option value="de">Deutsch</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="theme-preference">Thème</label>
+                                    <select id="theme-preference">
+                                        <option value="light">Clair</option>
+                                        <option value="dark">Sombre</option>
+                                        <option value="system">Système (auto)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="timezone-preference">Fuseau horaire</label>
+                                    <select id="timezone-preference">
+                                        <option value="Europe/Paris" selected>Europe/Paris (GMT+2)</option>
+                                        <option value="America/New_York">America/New_York (GMT-4)</option>
+                                        <option value="Asia/Tokyo">Asia/Tokyo (GMT+9)</option>
+                                        <option value="Australia/Sydney">Australia/Sydney (GMT+10)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Format de date</label>
+                                    <div class="radio-options">
+                                        <div class="radio-option">
+                                            <input type="radio" id="date-format-1" name="date-format" checked>
+                                            <label for="date-format-1">DD/MM/YYYY</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="date-format-2" name="date-format">
+                                            <label for="date-format-2">MM/DD/YYYY</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="date-format-3" name="date-format">
+                                            <label for="date-format-3">YYYY-MM-DD</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div id="notification-settings" class="settings-section">
+                            <h2>Paramètres de notification</h2>
+                            <p class="settings-description">Configurez comment et quand vous souhaitez être notifié</p>
+                            
+                            <form id="notification-settings-form" class="settings-form">
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="email-notifications">Notifications par email</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="email-notifications" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <p class="field-hint">Recevez des notifications par email en plus des notifications dans l'application</p>
+                                </div>
+                                
+                                <h3 class="settings-subtitle">Notifications des tâches</h3>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="task-assignments">Assignations de tâches</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="task-assignments" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="task-updates">Mises à jour des tâches</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="task-updates" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="task-reminders">Rappels d'échéance</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="task-reminders" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="indent-options">
+                                        <select id="reminder-time">
+                                            <option value="1">1 jour avant l'échéance</option>
+                                            <option value="2" selected>2 jours avant l'échéance</option>
+                                            <option value="3">3 jours avant l'échéance</option>
+                                            <option value="7">1 semaine avant l'échéance</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="settings-subtitle">Autres notifications</h3>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="project-updates">Mises à jour des projets</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="project-updates" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="mentions">Mentions</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="mentions" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="toggle-switch-container">
+                                        <label for="daily-digest">Résumé quotidien</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="daily-digest">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div id="security-settings" class="settings-section">
+                            <h2>Sécurité</h2>
+                            <p class="settings-description">Gérez la sécurité de votre compte</p>
+                            
+                            <div class="settings-form">
+                                <h3 class="settings-subtitle">Modifier le mot de passe</h3>
+                                
+                                <form id="change-password-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Mot de passe actuel</label>
+                                        <input type="password" id="current-password">
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="new-password">Nouveau mot de passe</label>
+                                            <input type="password" id="new-password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirmer le mot de passe</label>
+                                            <input type="password" id="confirm-password">
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="password-requirements">
+                                        Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.
+                                    </p>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Modifier le mot de passe</button>
+                                    </div>
+                                </form>
+                                
+                                <h3 class="settings-subtitle mt-5">Authentification à deux facteurs</h3>
+                                
+                                <div class="two-factor-auth">
+                                    <div class="toggle-switch-container">
+                                        <label for="two-factor">Activer l'authentification à deux facteurs</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="two-factor">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <p class="field-hint">
+                                        L'authentification à deux facteurs ajoute une couche de sécurité supplémentaire à votre compte en exigeant un code de vérification en plus de votre mot de passe.
+                                    </p>
+                                    <button class="btn btn-outline-primary mt-3 disabled">
+                                        <i class="fas fa-qrcode"></i> Configurer
+                                    </button>
+                                </div>
+                                
+                                <h3 class="settings-subtitle mt-5">Sessions actives</h3>
+                                
+                                <div class="active-sessions">
+                                    <div class="session-item">
+                                        <div class="session-info">
+                                            <div class="session-device">
+                                                <i class="fas fa-laptop"></i>
+                                                <div>
+                                                    <div class="device-name">MacBook Pro - Chrome</div>
+                                                    <div class="device-details">Paris, France - 192.168.1.1</div>
+                                                </div>
+                                            </div>
+                                            <div class="session-time">
+                                                <div class="status active">Active</div>
+                                                <div class="time-info">Connecté aujourd'hui à 09:42</div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-secondary">Déconnecter</button>
+                                    </div>
+                                    
+                                    <div class="session-item">
+                                        <div class="session-info">
+                                            <div class="session-device">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <div>
+                                                    <div class="device-name">iPhone 12 - Safari</div>
+                                                    <div class="device-details">Paris, France - 192.168.1.5</div>
+                                                </div>
+                                            </div>
+                                            <div class="session-time">
+                                                <div class="status active">Active</div>
+                                                <div class="time-info">Connecté hier à 18:24</div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-secondary">Déconnecter</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions mt-4">
+                                    <button class="btn btn-outline-danger">
+                                        <i class="fas fa-power-off"></i> Déconnecter toutes les autres sessions
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

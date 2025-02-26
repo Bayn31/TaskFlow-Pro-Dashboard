@@ -2,297 +2,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow Pro | Gestion de Projets Avancée</title>
+    <title>TaskFlow Pro | Tableau de bord</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TaskFlow Pro - Application SaaS de gestion de projets avec tableaux de bord analytiques avancés">
 </head>
-<body>
-    <header>
-        <div class="container">
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
             <div class="logo">
                 <i class="fas fa-project-diagram"></i>
-                <h1>TaskFlow Pro</h1>
+                <h2>TaskFlow Pro</h2>
             </div>
-            <nav>
+            <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="#features">Fonctionnalités</a></li>
-                    <li><a href="#dashboard">Tableaux de bord</a></li>
-                    <li><a href="#testimonials">Témoignages</a></li>
-                    <li><a href="#pricing">Tarifs</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-chart-line"></i> <span>Tableau de bord</span></a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> <span>Tâches</span></a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> <span>Planification</span></a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> <span>Rapports</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
                 </ul>
             </nav>
-            <div class="cta-buttons">
-                <button class="btn btn-secondary">Se connecter</button>
-                <button class="btn btn-primary">Essai gratuit</button>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Gérez vos projets avec une intelligence analytique avancée</h1>
-                <p>TaskFlow Pro transforme votre gestion de projet avec des tableaux de bord analytiques qui vous donnent une visibilité complète sur vos performances et vos progrès.</p>
-                <div class="cta-group">
-                    <button class="btn btn-primary btn-large"><a href="Dashboards/index.html" style="color: white;">Commencer gratuitement</a></button>
-                    <button class="btn btn-outline">Voir une démo</button>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <p class="user-name">Thomas Dupont</p>
+                        <p class="user-role">Chef de projet</p>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div id="dashboard-preview"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Des fonctionnalités conçues pour les équipes productives</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Gestion de tâches intuitive</h3>
-                    <p>Créez, organisez et suivez vos tâches avec une interface simple et puissante, adaptée à tous les types de projets.</p>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="page-title">
+                    <h1>Tableau de bord</h1>
+                    <p>Bienvenue sur votre espace de travail</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Rechercher...">
                     </div>
-                    <h3>Tableaux de bord analytiques</h3>
-                    <p>Visualisez les performances de votre équipe avec des métriques clés et des graphiques personnalisables en temps réel.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                    <button class="btn btn-primary" id="add-task-btn"><i class="fas fa-plus"></i> Nouvelle tâche</button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
                     </div>
-                    <h3>Collaboration d'équipe</h3>
-                    <p>Communiquez efficacement et partagez des ressources dans un espace de travail centralisé pour toute votre équipe.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
                     </div>
-                    <h3>Planification avancée</h3>
-                    <p>Planifiez vos projets avec des diagrammes de Gantt interactifs et des outils de prévision intelligents.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="dashboard" class="dashboard-section">
-        <div class="container">
+            </header>
+            
             <div class="dashboard-content">
-                <h2>Analytics puissants pour des décisions éclairées</h2>
-                <p>Nos tableaux de bord interactifs vous permettent de visualiser tous les aspects de vos projets et de votre productivité d'équipe.</p>
-                <ul class="dashboard-features">
-                    <li><i class="fas fa-check-circle"></i> Suivi en temps réel des KPIs de projet</li>
-                    <li><i class="fas fa-check-circle"></i> Visualisation de la répartition des charges de travail</li>
-                    <li><i class="fas fa-check-circle"></i> Identification des goulots d'étranglement</li>
-                    <li><i class="fas fa-check-circle"></i> Prévisions basées sur les performances historiques</li>
-                </ul>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon blue">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h3>Tâches totales</h3>
+                            <p class="metric-value">24</p>
+                            <p class="metric-trend positive"><i class="fas fa-arrow-up"></i> 12% vs. mois dernier</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h3>Tâches terminées</h3>
+                            <p class="metric-value">16</p>
+                            <p class="metric-trend positive"><i class="fas fa-arrow-up"></i> 8% vs. mois dernier</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon orange">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h3>En cours</h3>
+                            <p class="metric-value">5</p>
+                            <p class="metric-trend negative"><i class="fas fa-arrow-down"></i> 3% vs. mois dernier</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon red">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h3>En retard</h3>
+                            <p class="metric-value">3</p>
+                            <p class="metric-trend negative"><i class="fas fa-arrow-up"></i> 2% vs. mois dernier</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Progression du projet</h3>
+                            <div class="chart-actions">
+                                <select id="project-select">
+                                    <option value="all">Tous les projets</option>
+                                    <option value="project1">Refonte du site web</option>
+                                    <option value="project2">Application mobile</option>
+                                    <option value="project3">Campagne marketing</option>
+                                </select>
+                                <div class="period-selector">
+                                    <button class="active">Semaine</button>
+                                    <button>Mois</button>
+                                    <button>Année</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Répartition des tâches</h3>
+                            <div class="chart-actions">
+                                <select id="task-period-select">
+                                    <option value="week">Cette semaine</option>
+                                    <option value="month">Ce mois</option>
+                                    <option value="quarter">Ce trimestre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="tasksDistributionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tasks-section">
+                    <div class="section-header">
+                        <h3>Tâches récentes</h3>
+                        <button class="btn btn-outline-primary" id="view-all-tasks">Voir toutes les tâches</button>
+                    </div>
+                    
+                    <div class="task-board" id="task-board">
+                        <div class="task-column" id="todo-column">
+                            <div class="column-header">
+                                <h4>À faire</h4>
+                                <span class="task-count">3</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="task-column" id="in-progress-column">
+                            <div class="column-header">
+                                <h4>En cours</h4>
+                                <span class="task-count">5</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="task-column" id="review-column">
+                            <div class="column-header">
+                                <h4>En ré! 
+                                <span class="task-count">2</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="task-column" id="completed-column">
+                            <div class="column-header">
+                                <h4>Terminé</h4>
+                                <span class="task-count">4</span>
+                            </div>
+                            <div class="task-list">
+                                <!-- Tasks will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-activity">
+                    <div class="section-header">
+                        <h3>Activité de l'équipe</h3>
+                    </div>
+                    <div class="activity-list" id="activity-list">
+                        <!-- Activities will be populated by JS -->
+                    </div>
+                </div>
             </div>
-            <div class="dashboard-demo" id="dashboard-demo">
-                <!-- JS va générer le tableau de bord interactif ici -->
+        </main>
+    </div>
+    
+    <!-- Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ajouter une nouvelle tâche</h3>
+                <button class="close-modal" id="close-modal" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Titre</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-project">Projet</label>
+                            <select id="task-project">
+                                <option value="project1">Refonte du site web</option>
+                                <option value="project2">Application mobile</option>
+                                <option value="project3">Campagne marketing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priorité</label>
+                            <select id="task-priority">
+                                <option value="low">Basse</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="high">Haute</option>
+                                <option value="urgent">Urgente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-status">Statut</label>
+                            <select id="task-status">
+                                <option value="todo">À faire</option>
+                                <option value="in-progress">En cours</option>
+                                <option value="review">En révision</option>
+                                <option value="completed">Terminé</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-due-date">Date d'échéance</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-assignee">Assigné à</label>
+                        <select id="task-assignee">
+                            <option value="user1">Thomas Dupont</option>
+                            <option value="user2">Sophie Martin</option>
+                            <option value="user3">Lucas Bernard</option>
+                            <option value="user4">Emma Petit</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-task">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Ce que nos clients disent</h2>
-            <div class="testimonial-carousel" id="testimonial-carousel">
-                <div class="testimonial-card active">
-                    <div class="testimonial-content">
-                        <p>"TaskFlow Pro a transformé notre façon de gérer les projets. Les analyses nous ont permis d'améliorer notre productivité de 35% en seulement 3 mois."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Sophie Martin</h4>
-                            <p>Directrice de Projet, Tech Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"L'interface intuitive et les tableaux de bord personnalisables nous ont permis d'avoir une visibilité sans précédent sur nos projets."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Thomas Dubois</h4>
-                            <p>PDG, Innovate Corp</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Les fonctionnalités analytiques de TaskFlow Pro nous ont aidés à identifier et résoudre des problèmes que nous ne savions même pas avoir."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Julie Leclerc</h4>
-                            <p>Responsable d'équipe, Digital Agency</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
-                    <div class="carousel-indicators">
-                        <span class="indicator active"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
-                    </div>
-                    <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Plans tarifaires adaptés à vos besoins</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Débutant</h3>
-                        <div class="price">
-                            <span class="currency">€</span>
-                            <span class="amount">9</span>
-                            <span class="period">/mois par utilisateur</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Gestion de tâches de base</li>
-                        <li><i class="fas fa-check"></i> Tableaux de bord simples</li>
-                        <li><i class="fas fa-check"></i> Jusqu'à 5 projets</li>
-                        <li><i class="fas fa-check"></i> 5 Go de stockage</li>
-                        <li class="disabled"><i class="fas fa-times"></i> Analyses avancées</li>
-                        <li class="disabled"><i class="fas fa-times"></i> Intégrations API</li>
-                    </ul>
-                    <button class="btn btn-outline btn-full">Choisir ce plan</button>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="pricing-header">
-                        <div class="popular-tag">Le plus choisi</div>
-                        <h3>Professionnel</h3>
-                        <div class="price">
-                            <span class="currency">€</span>
-                            <span class="amount">19</span>
-                            <span class="period">/mois par utilisateur</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Gestion de tâches avancée</li>
-                        <li><i class="fas fa-check"></i> Tableaux de bord complets</li>
-                        <li><i class="fas fa-check"></i> Projets illimités</li>
-                        <li><i class="fas fa-check"></i> 50 Go de stockage</li>
-                        <li><i class="fas fa-check"></i> Analyses avancées</li>
-                        <li class="disabled"><i class="fas fa-times"></i> Intégrations API</li>
-                    </ul>
-                    <button class="btn btn-primary btn-full">Choisir ce plan</button>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Entreprise</h3>
-                        <div class="price">
-                            <span class="currency">€</span>
-                            <span class="amount">39</span>
-                            <span class="period">/mois par utilisateur</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Gestion de tâches avancée</li>
-                        <li><i class="fas fa-check"></i> Tableaux de bord personnalisés</li>
-                        <li><i class="fas fa-check"></i> Projets illimités</li>
-                        <li><i class="fas fa-check"></i> Stockage illimité</li>
-                        <li><i class="fas fa-check"></i> Analyses avancées</li>
-                        <li><i class="fas fa-check"></i> Intégrations API</li>
-                    </ul>
-                    <button class="btn btn-outline btn-full">Choisir ce plan</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Prêt à transformer votre gestion de projet ?</h2>
-                <p>Rejoignez les milliers d'équipes qui utilisent TaskFlow Pro pour améliorer leur productivité et leur prise de décision.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-large">Commencer gratuitement</button>
-                    <button class="btn btn-secondary">Contacter les ventes</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand">
-                    <div class="logo">
-                        <i class="fas fa-project-diagram"></i>
-                        <h3>TaskFlow Pro</h3>
-                    </div>
-                    <p>Une solution SaaS complète pour la gestion de projet et l'analyse de performance.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Produit</h4>
-                    <ul>
-                        <li><a href="#">Fonctionnalités</a></li>
-                        <li><a href="#">Tarifs</a></li>
-                        <li><a href="#">Témoignages</a></li>
-                        <li><a href="#">Nouveautés</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Ressources</h4>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Guide utilisateur</a></li>
-                        <li><a href="#">Webinaires</a></li>
-                        <li><a href="#">API Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Entreprise</h4>
-                    <ul>
-                        <li><a href="#">À propos</a></li>
-                        <li><a href="#">Équipe</a></li>
-                        <li><a href="#">Carrières</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 TaskFlow Pro. Tous droits réservés.</p>
-                <div class="legal-links">
-                    <a href="#">Conditions d'utilisation</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Mentions légales</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro | Gestion des Tâches</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TaskFlow Pro - Gestion intuitive de vos tâches et projets">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <h2>TaskFlow Pro</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> <span>Tableau de bord</span></a></li>
+                    <li class="active"><a href="tasks.html"><i class="fas fa-tasks"></i> <span>Tâches</span></a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Planification</span></a></li>
+                    <li><a href="team.html"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+                    <li><a href="reports.html"><i class="fas fa-file-alt"></i> <span>Rapports</span></a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <p class="user-name">Thomas Dupont</p>
+                        <p class="user-role">Chef de projet</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="page-title">
+                    <h1>Gestion des Tâches</h1>
+                    <p>Organisez et suivez toutes vos tâches</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Rechercher...">
+                    </div>
+                    <button class="btn btn-primary" id="add-task-btn"><i class="fas fa-plus"></i> Nouvelle tâche</button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content tasks-page">
+                <div class="tasks-filters-container">
+                    <form id="task-filters" class="task-filters">
+                        <div class="filter-group">
+                            <select id="filter-project" class="filter-select">
+                                <option value="all">Tous les projets</option>
+                                <option value="project1">Refonte du site web</option>
+                                <option value="project2">Application mobile</option>
+                                <option value="project3">Campagne marketing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <select id="filter-status" class="filter-select">
+                                <option value="all">Tous les statuts</option>
+                                <option value="todo">À faire</option>
+                                <option value="in-progress">En cours</option>
+                                <option value="review">En révision</option>
+                                <option value="completed">Terminé</option>
+                            </select>
+                        </div>
+                        <div class="filter-group search-filter">
+                            <input type="text" id="filter-search" placeholder="Chercher une tâche...">
+                            <button type="submit" class="filter-search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-group">
+                            <button type="button" id="reset-filters" class="btn btn-outline reset-filters">
+                                <i class="fas fa-sync-alt"></i> Réinitialiser
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="task-tools">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="table">
+                                <i class="fas fa-list"></i> Liste
+                            </button>
+                            <button class="view-btn" data-view="kanban">
+                                <i class="fas fa-columns"></i> Kanban
+                            </button>
+                        </div>
+                        <span id="task-counter" class="task-counter">24 tâches</span>
+                    </div>
+                </div>
+                
+                <div class="bulk-actions">
+                    <div class="bulk-actions-text">
+                        <span id="selected-count">0</span> tâches sélectionnées
+                    </div>
+                    <div class="bulk-actions-buttons">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle">
+                                <i class="fas fa-tag"></i> Changer statut <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item bulk-status-option" data-status="todo">À faire</a>
+                                <a href="#" class="dropdown-item bulk-status-option" data-status="in-progress">En cours</a>
+                                <a href="#" class="dropdown-item bulk-status-option" data-status="review">En révision</a>
+                                <a href="#" class="dropdown-item bulk-status-option" data-status="completed">Terminé</a>
+                            </div>
+                        </div>
+                        <button id="bulk-delete" class="btn btn-outline-danger">
+                            <i class="fas fa-trash-alt"></i> Supprimer
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tasks-table-container table-view active">
+                    <table class="task-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;">
+                                    <input type="checkbox" id="select-all-tasks" class="select-all-checkbox">
+                                </th>
+                                <th data-sort="title" class="sort-asc">
+                                    Titre <i class="fas fa-sort-up sort-icon"></i>
+                                </th>
+                                <th data-sort="project">
+                                    Projet <i class="fas fa-sort sort-icon"></i>
+                                </th>
+                                <th data-sort="priority">
+                                    Priorité <i class="fas fa-sort sort-icon"></i>
+                                </th>
+                                <th data-sort="duedate">
+                                    Échéance <i class="fas fa-sort sort-icon"></i>
+                                </th>
+                                <th data-sort="status">
+                                    Statut <i class="fas fa-sort sort-icon"></i>
+                                </th>
+                                <th class="table-actions-col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-task-id="1" data-status="completed" data-priority="high">
+                                <td><input type="checkbox" class="task-checkbox"></td>
+                                <td>
+                                    <div class="task-title">Concevoir la maquette</div>
+                                    <div class="task-description">Créer des wireframes et des maquettes pour le site web.</div>
+                                </td>
+                                <td class="task-project">Refonte du site web</td>
+                                <td><span class="priority-badge priority-high">Haute</span></td>
+                                <td class="task-duedate" data-date="2023-08-15">15/08/2023</td>
+                                <td><span class="status-badge status-completed">Terminé</span></td>
+                                <td class="task-actions">
+                                    <button class="action-btn edit-task-btn" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-task-btn" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-task-id="2" data-status="in-progress" data-priority="medium">
+                                <td><input type="checkbox" class="task-checkbox"></td>
+                                <td>
+                                    <div class="task-title">Développer la page d'accueil</div>
+                                    <div class="task-description">Implémenter le frontend de la page d'accueil selon la maquette approuvée.</div>
+                                </td>
+                                <td class="task-project">Refonte du site web</td>
+                                <td><span class="priority-badge priority-medium">Moyenne</span></td>
+                                <td class="task-duedate" data-date="2023-08-20">20/08/2023</td>
+                                <td><span class="status-badge status-in-progress">En cours</span></td>
+                                <td class="task-actions">
+                                    <button class="action-btn edit-task-btn" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-task-btn" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-task-id="3" data-status="todo" data-priority="low">
+                                <td><input type="checkbox" class="task-checkbox"></td>
+                                <td>
+                                    <div class="task-title">Optimiser les images</div>
+                                    <div class="task-description">Compresser et optimiser toutes les images du site pour améliorer la performance.</div>
+                                </td>
+                                <td class="task-project">Refonte du site web</td>
+                                <td><span class="priority-badge priority-low">Basse</span></td>
+                                <td class="task-duedate" data-date="2023-08-25">25/08/2023</td>
+                                <td><span class="status-badge status-todo">À faire</span></td>
+                                <td class="task-actions">
+                                    <button class="action-btn edit-task-btn" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-task-btn" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-task-id="4" data-status="review" data-priority="medium">
+                                <td><input type="checkbox" class="task-checkbox"></td>
+                                <td>
+                                    <div class="task-title">Tester la compatibilité</div>
+                                    <div class="task-description">Vérifier que le site fonctionne correctement sur tous les navigateurs principaux.</div>
+                                </td>
+                                <td class="task-project">Refonte du site web</td>
+                                <td><span class="priority-badge priority-medium">Moyenne</span></td>
+                                <td class="task-duedate" data-date="2023-08-22">22/08/2023</td>
+                                <td><span class="status-badge status-review">En révision</span></td>
+                                <td class="task-actions">
+                                    <button class="action-btn edit-task-btn" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-task-btn" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-task-id="5" data-status="in-progress" data-priority="high">
+                                <td><input type="checkbox" class="task-checkbox"></td>
+                                <td>
+                                    <div class="task-title">Développer l'API de backend</div>
+                                    <div class="task-description">Créer les endpoints d'API nécessaires pour l'application mobile.</div>
+                                </td>
+                                <td class="task-project">Application mobile</td>
+                                <td><span class="priority-badge priority-high">Haute</span></td>
+                                <td class="task-duedate" data-date="2023-08-30">30/08/2023</td>
+                                <td><span class="status-badge status-in-progress">En cours</span></td>
+                                <td class="task-actions">
+                                    <button class="action-btn edit-task-btn" title="Modifier">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete-task-btn" title="Supprimer">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="kanban-view">
+                    <div class="task-board" id="task-board">
+                        <!-- This will be identical to the task board on the dashboard -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Task Modal (Same as on dashboard) -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ajouter une nouvelle tâche</h3>
+                <button class="close-modal" id="close-modal" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Titre</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-project">Projet</label>
+                            <select id="task-project">
+                                <option value="project1">Refonte du site web</option>
+                                <option value="project2">Application mobile</option>
+                                <option value="project3">Campagne marketing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priorité</label>
+                            <select id="task-priority">
+                                <option value="low">Basse</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="high">Haute</option>
+                                <option value="urgent">Urgente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-status">Statut</label>
+                            <select id="task-status">
+                                <option value="todo">À faire</option>
+                                <option value="in-progress">En cours</option>
+                                <option value="review">En révision</option>
+                                <option value="completed">Terminé</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-due-date">Date d'échéance</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-assignee">Assigné à</label>
+                        <select id="task-assignee">
+                            <option value="user1">Thomas Dupont</option>
+                            <option value="user2">Sophie Martin</option>
+                            <option value="user3">Lucas Bernard</option>
+                            <option value="user4">Emma Petit</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-task">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

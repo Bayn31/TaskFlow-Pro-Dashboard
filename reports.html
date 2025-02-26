@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro | Rapports</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="TaskFlow Pro - Statistiques et rapports analytiques pour vos projets">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <h2>TaskFlow Pro</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> <span>Tableau de bord</span></a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i> <span>Tâches</span></a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Planification</span></a></li>
+                    <li><a href="team.html"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+                    <li class="active"><a href="reports.html"><i class="fas fa-file-alt"></i> <span>Rapports</span></a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div>
+                        <p class="user-name">Thomas Dupont</p>
+                        <p class="user-role">Chef de projet</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="page-title">
+                    <h1>Rapports</h1>
+                    <p>Analysez la performance de vos projets et de votre équipe</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Rechercher...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content reports-page">
+                <div class="reports-header">
+                    <div class="report-filters">
+                        <div class="date-range-container">
+                            <div class="date-range-inputs">
+                                <div class="form-group">
+                                    <label for="report-start-date">Début</label>
+                                    <input type="date" id="report-start-date">
+                                </div>
+                                <div class="date-range-separator">à</div>
+                                <div class="form-group">
+                                    <label for="report-end-date">Fin</label>
+                                    <input type="date" id="report-end-date">
+                                </div>
+                            </div>
+                            <div class="date-range-options">
+                                <button class="date-range-option" data-range="week">7 jours</button>
+                                <button class="date-range-option active" data-range="month">30 jours</button>
+                                <button class="date-range-option" data-range="quarter">90 jours</button>
+                                <button class="date-range-option" data-range="year">1 an</button>
+                            </div>
+                        </div>
+                        <div class="project-filter">
+                            <label for="report-project-filter">Projet</label>
+                            <select id="report-project-filter">
+                                <option value="all">Tous les projets</option>
+                                <option value="project1">Refonte du site web</option>
+                                <option value="project2">Application mobile</option>
+                                <option value="project3">Campagne marketing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="report-actions">
+                        <button id="export-pdf" class="btn btn-outline-secondary">
+                            <i class="far fa-file-pdf"></i> Exporter PDF
+                        </button>
+                        <button id="export-excel" class="btn btn-outline-secondary">
+                            <i class="far fa-file-excel"></i> Exporter Excel
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="report-summary">
+                    <div class="summary-card">
+                        <div class="summary-title">Tâches totales</div>
+                        <div id="total-tasks-value" class="summary-value">45</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-title">Tâches terminées</div>
+                        <div id="completed-tasks-value" class="summary-value">32</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-title">Taux de réalisation</div>
+                        <div id="completion-rate-value" class="summary-value">71%</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-title">Temps moyen par tâche</div>
+                        <div id="avg-task-time-value" class="summary-value">3.2 jours</div>
+                    </div>
+                </div>
+                
+                <div class="report-charts-row">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Progression des projets</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="projects-progress-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Répartition du temps</h3>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="time-spent-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container full-width">
+                    <div class="chart-header">
+                        <h3>Taux de réalisation des tâches</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="task-completion-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="reports-table-section">
+                    <div class="section-header">
+                        <h3>Détails des tâches</h3>
+                    </div>
+                    <div class="reports-table-container">
+                        <table class="reports-table">
+                            <thead>
+                                <tr>
+                                    <th>Tâche</th>
+                                    <th>Projet</th>
+                                    <th>Assignée à</th>
+                                    <th>Date de début</th>
+                                    <th>Date de fin</th>
+                                    <th>Durée</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Concevoir la maquette</td>
+                                    <td>Refonte du site web</td>
+                                    <td>Sophie Martin</td>
+                                    <td>10/08/2023</td>
+                                    <td>15/08/2023</td>
+                                    <td>5 jours</td>
+                                    <td><span class="status-badge status-completed">Terminé</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Développer la page d'accueil</td>
+                                    <td>Refonte du site web</td>
+                                    <td>Thomas Dupont</td>
+                                    <td>16/08/2023</td>
+                                    <td>20/08/2023</td>
+                                    <td>4 jours</td>
+                                    <td><span class="status-badge status-in-progress">En cours</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Créer l'API backend</td>
+                                    <td>Application mobile</td>
+                                    <td>Lucas Bernard</td>
+                                    <td>15/08/2023</td>
+                                    <td>30/08/2023</td>
+                                    <td>15 jours</td>
+                                    <td><span class="status-badge status-in-progress">En cours</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Créer la présentation</td>
+                                    <td>Campagne marketing</td>
+                                    <td>Emma Petit</td>
+                                    <td>01/08/2023</td>
+                                    <td>05/08/2023</td>
+                                    <td>4 jours</td>
+                                    <td><span class="status-badge status-completed">Terminé</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Planifier les publications sociales</td>
+                                    <td>Campagne marketing</td>
+                                    <td>Sophie Martin</td>
+                                    <td>15/08/2023</td>
+                                    <td>23/08/2023</td>
+                                    <td>8 jours</td>
+                                    <td><span class="status-badge status-in-progress">En cours</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
